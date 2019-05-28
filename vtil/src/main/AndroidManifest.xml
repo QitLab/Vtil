@@ -1,2 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qit.vtil" />
+    package="com.qit.vtil">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application>
+        <activity
+            android:name=".HiddenActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/vtil_Theme.AppCompat.Translucent" />
+    </application>
+</manifest>
