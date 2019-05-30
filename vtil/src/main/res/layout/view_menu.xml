@@ -4,28 +4,26 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/composer_button">
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:background="@drawable/composer_button"
+        android:padding="4dp">
 
         <ImageView
             android:id="@+id/id_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/composer_icn_plus" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/composer_place"
-        android:tag="Place" />
+        android:src="@drawable/composer_place" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/composer_sleep"
-        android:tag="Sleep" />
+        android:src="@drawable/composer_sleep" />
 
 </com.qit.vtil.MenuLayout>

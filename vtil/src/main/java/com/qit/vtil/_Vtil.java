@@ -50,11 +50,6 @@ final class _Vtil {
         View vi = LayoutInflater.from(getApplicationContext()).inflate(R.layout.view_menu, null);
         mVtilBtn = vi.findViewById(R.id.id_menu);
         mVtilBtn.show();
-
-//        if (mVtilBtn == null)
-//            mVtilBtn = new MenuLayout(mContext);
-//        if (mVtilBtn.isOpen())
-//            mVtilBtn.toggleMenu(600);
         mVtilBtn.setOnMenuItemClickListener((view, pos) -> {
             switch (pos) {
                 case 1:
@@ -64,7 +59,16 @@ final class _Vtil {
                     startScalpel();
                     break;
             }
-//            Toast.makeText(getApplicationContext(), pos + ":" + view.getTag(), Toast.LENGTH_SHORT).show()
+        });
+        mVtilBtn.setOnMenuClickListener(pos -> {
+            switch (pos) {
+                case 1:
+                    startMeasure();
+                    break;
+                case 2:
+                    startScalpel();
+                    break;
+            }
         });
 //
 
@@ -117,7 +121,7 @@ final class _Vtil {
         instance.setCurrentActivity(currentTopActivity);
     }
 
-    private void startScalpel(){
+    private void startScalpel() {
         ViewGroup decorView = (ViewGroup) initCurrentActivity().getWindow().getDecorView();
         ViewGroup content = decorView.findViewById(android.R.id.content);
         View contentChild = content.getChildAt(0);

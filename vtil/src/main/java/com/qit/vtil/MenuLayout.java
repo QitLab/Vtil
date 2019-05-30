@@ -2,6 +2,7 @@ package com.qit.vtil;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -20,7 +21,9 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
+import static com.qit.vtil.DimenUtil.px2dip;
 import static com.qit.vtil.Util.getApplicationContext;
 
 /**
@@ -39,13 +42,26 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
     /**
      * 菜单的主按钮
      */
-    private View mCButton;
-
+    private View mMenuBtn;
+    /**
+     * 菜单主按钮内容控件
+     */
+    private ImageView mMenuContentView;
+    /**
+     * 内容图
+     */
+    private Drawable mMenuContentDrawable;
+    /**
+     * 选中的功能项
+     */
+    private int position = 0;
 
     private OnMenuItemClickListener mMenuItemClickListener;
+    private OnMenuClickListener mMenuClickListener;
 
     public void show() {
-        mCButton = getChildAt(0);
+        mMenuBtn = getChildAt(0);
+        mMenuContentView = mMenuBtn.findViewById(R.id.id_button);
         windowManager.addView(this, getWindowLayoutParams());
     }
 
@@ -53,6 +69,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         OPEN, CLOSE
     }
 
+    private boolean isSelect = false;
 
     /**
      * 点击子菜单项的回调接口
@@ -61,9 +78,21 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         void onClick(View view, int pos);
     }
 
+    /**
+     * 点击菜单的回调接口
+     */
+    public interface OnMenuClickListener {
+        void reset(int pos);
+    }
+
     public void setOnMenuItemClickListener(
             OnMenuItemClickListener mMenuItemClickListener) {
         this.mMenuItemClickListener = mMenuItemClickListener;
+    }
+
+    public void setOnMenuClickListener(
+            OnMenuClickListener mMenuClickListener) {
+        this.mMenuClickListener = mMenuClickListener;
     }
 
     public MenuLayout(Context context) {
@@ -93,7 +122,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 
-        int width = mCButton.getWidth() * 2 + mRadius;
+        int width = mMenuBtn.getWidth() * 2 + mRadius;
         setMeasuredDimension(width, width);
         requestLayout();
 
@@ -139,9 +168,9 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
      * 定位主菜单按钮
      */
     private void layoutCButton() {
-//        mCButton = getChildAt(0);
-        mCButton.setOnClickListener(this);
-        mCButton.setOnTouchListener(new View.OnTouchListener() {
+//        mMenuBtn = getChildAt(0);
+        mMenuBtn.setOnClickListener(this);
+        mMenuBtn.setOnTouchListener(new View.OnTouchListener() {
             private float downX, downY;
             private float lastX, lastY;
 
@@ -165,7 +194,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
                         break;
                     case MotionEvent.ACTION_UP:
                         if (Math.abs(event.getRawX() - downX) < touchSlop && Math.abs(event.getRawY() - downY) < touchSlop) {
-                            mCButton.performClick();
+                            mMenuBtn.performClick();
                         }
                         break;
                 }
@@ -173,16 +202,23 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
             }
         });
 
-        int width = mCButton.getMeasuredWidth();
-        int height = mCButton.getMeasuredHeight();
+        int width = mMenuBtn.getMeasuredWidth();
+        int height = mMenuBtn.getMeasuredHeight();
 
         int l = getMeasuredWidth() - width;
         int t = getMeasuredHeight() - height;
-        mCButton.layout(l, t, l + width, t + width);
+        mMenuBtn.layout(l, t, l + width, t + width);
     }
 
     @Override
     public void onClick(View v) {
+        if (isSelect) {
+            mMenuContentDrawable = null;
+            mMenuContentView.setImageDrawable(null);
+            mMenuClickListener.reset(position);
+            position = 0;
+            isSelect = false;
+        }
         changeStatus();
         toggleMenu(300);
     }
@@ -198,10 +234,11 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
             final View childView = getChildAt(i + 1);
             childView.setVisibility(View.VISIBLE);
 
-            // end 0 , 0
+            int mBtnPadding = px2dip(mMenuBtn.getPaddingBottom());
             // start
-            int cl = (int) (mRadius * Math.sin(Math.PI / 2 / (count - 2) * i));
-            int ct = (int) (mRadius * Math.cos(Math.PI / 2 / (count - 2) * i));
+            int cl = (int) (mRadius * Math.sin(Math.PI / 2 / (count - 2) * i)) - mBtnPadding;
+            int ct = (int) (mRadius * Math.cos(Math.PI / 2 / (count - 2) * i)) - mBtnPadding;
+            // end 0 , 0
 
 
             AnimationSet animset = new AnimationSet(true);
@@ -240,6 +277,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
                 public void onAnimationEnd(Animation animation) {
                     if (mCurrentStatus == Status.CLOSE) {
                         childView.setVisibility(View.GONE);
+                        mMenuContentView.setImageDrawable(mMenuContentDrawable);
                     }
                 }
             });
@@ -256,9 +294,11 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
 
             final int pos = i + 1;
             childView.setOnClickListener(v -> {
+                position=pos;
                 if (mMenuItemClickListener != null)
                     mMenuItemClickListener.onClick(childView, pos);
-
+                mMenuContentDrawable = ((ImageView) getChildAt(pos)).getDrawable();
+                isSelect = true;
                 menuItemAnim(pos - 1);
                 changeStatus();
                 toggleMenu(300);
