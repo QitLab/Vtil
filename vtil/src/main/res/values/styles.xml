@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="vtil_Theme.AppCompat.Translucent" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="VtilTheme.AppCompat.Translucent" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -16,7 +16,7 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="vtil_Theme.Holo.Dialog.background.Translucent" parent="@android:style/Theme.Holo.Dialog">
+    <style name="VtilTheme.Holo.Dialog.background.Translucent" parent="@android:style/Theme.Holo.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

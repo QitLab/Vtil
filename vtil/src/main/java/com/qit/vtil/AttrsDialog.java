@@ -33,7 +33,7 @@ public class AttrsDialog extends Dialog {
     private View bgColor;
 
     AttrsDialog(Context context) {
-        super(context, R.style.vtil_Theme_Holo_Dialog_background_Translucent);
+        super(context, R.style.VtilTheme_Holo_Dialog_background_Translucent);
     }
 
     @SuppressLint("SetTextI18n")

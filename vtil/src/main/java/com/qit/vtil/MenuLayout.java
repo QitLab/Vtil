@@ -294,7 +294,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
 
             final int pos = i + 1;
             childView.setOnClickListener(v -> {
-                position=pos;
+                position = pos;
                 if (mMenuItemClickListener != null)
                     mMenuItemClickListener.onClick(childView, pos);
                 mMenuContentDrawable = ((ImageView) getChildAt(pos)).getDrawable();
@@ -310,18 +310,16 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
 
     /**
      * 添加menuItem的点击动画
-     *
-     * @param pos
      */
     private void menuItemAnim(int pos) {
         for (int i = 0; i < getChildCount() - 1; i++) {
 
             View childView = getChildAt(i + 1);
             if (i == pos) {
-                childView.startAnimation(scaleBigAnim(300));
+                childView.startAnimation(scaleBigAnim());
             } else {
 
-                childView.startAnimation(scaleSmallAnim(300));
+                childView.startAnimation(scaleSmallAnim());
             }
 
             childView.setClickable(false);
@@ -331,7 +329,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
 
     }
 
-    private Animation scaleSmallAnim(int duration) {
+    private Animation scaleSmallAnim() {
 
         AnimationSet animationSet = new AnimationSet(true);
 
@@ -341,7 +339,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         AlphaAnimation alphaAnim = new AlphaAnimation(1f, 0.0f);
         animationSet.addAnimation(scaleAnim);
         animationSet.addAnimation(alphaAnim);
-        animationSet.setDuration(duration);
+        animationSet.setDuration(300);
         animationSet.setFillAfter(true);
         return animationSet;
 
@@ -349,11 +347,8 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
 
     /**
      * 为当前点击的Item设置变大和透明度降低的动画
-     *
-     * @param duration
-     * @return
      */
-    private Animation scaleBigAnim(int duration) {
+    private Animation scaleBigAnim() {
         AnimationSet animationSet = new AnimationSet(true);
 
         ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 4.0f, 1.0f, 4.0f,
@@ -364,7 +359,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         animationSet.addAnimation(scaleAnim);
         animationSet.addAnimation(alphaAnim);
 
-        animationSet.setDuration(duration);
+        animationSet.setDuration(300);
         animationSet.setFillAfter(true);
         return animationSet;
 
@@ -378,10 +373,6 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
                 : Status.CLOSE);
     }
 
-    public boolean isOpen() {
-        return mCurrentStatus == Status.OPEN;
-    }
-
     private WindowManager.LayoutParams getWindowLayoutParams() {
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -392,7 +383,7 @@ public class MenuLayout extends ViewGroup implements OnClickListener {
         }
         params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         params.format = PixelFormat.TRANSLUCENT;
-        params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+        params.gravity = Gravity.BOTTOM | Gravity.END;
         params.x = 50;
         params.y = 50;
         return params;

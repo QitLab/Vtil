@@ -7,6 +7,6 @@
         <activity
             android:name=".HiddenActivity"
             android:launchMode="singleTask"
-            android:theme="@style/vtil_Theme.AppCompat.Translucent" />
+            android:theme="@style/VtilTheme.AppCompat.Translucent" />
     </application>
 </manifest>
