@@ -106,7 +106,7 @@ public class Util {
         return "";
     }
 
-    static String intToHexColor(int color) {
+    private static String intToHexColor(int color) {
         return "#" + Integer.toHexString(color).toUpperCase();
     }
 

@@ -2,17 +2,13 @@ package com.qit.vtil;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.os.Build;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.qit.vtil.Util.getApplicationContext;
 
@@ -23,7 +19,6 @@ import static com.qit.vtil.Util.getApplicationContext;
 final class _Vtil {
     private static volatile _Vtil instance;
 
-    private MenuLayout mVtilBtn;
     private Activity currentActivity;
 
     private _Vtil() {
@@ -48,7 +43,7 @@ final class _Vtil {
 
     void show() {
         View vi = LayoutInflater.from(getApplicationContext()).inflate(R.layout.view_menu, null);
-        mVtilBtn = vi.findViewById(R.id.id_menu);
+        MenuLayout mVtilBtn = vi.findViewById(R.id.id_menu);
         mVtilBtn.show();
         mVtilBtn.setOnMenuItemClickListener((view, pos) -> {
             switch (pos) {
@@ -122,7 +117,7 @@ final class _Vtil {
     }
 
     private void startScalpel() {
-        ViewGroup decorView = (ViewGroup) initCurrentActivity().getWindow().getDecorView();
+        ViewGroup decorView = (ViewGroup) Objects.requireNonNull(initCurrentActivity()).getWindow().getDecorView();
         ViewGroup content = decorView.findViewById(android.R.id.content);
         View contentChild = content.getChildAt(0);
         if (contentChild != null) {

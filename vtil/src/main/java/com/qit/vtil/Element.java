@@ -21,7 +21,7 @@ public class Element {
     private Rect rect = new Rect();
     private Element parentElement;
 
-    public Element(View view) {
+    Element(View view) {
         this.view = view;
         this.width = view.getWidth();
         this.height = view.getHeight();
@@ -36,7 +36,7 @@ public class Element {
         initRect();
     }
 
-    public View getView() {
+    View getView() {
         return view;
     }
 
@@ -81,11 +81,11 @@ public class Element {
         }
     }
 
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    void setHeight(int height) {
         this.height = height;
         if (Math.abs(height - view.getHeight()) >= dip2px(1)) {
             if (view.getLayoutParams() instanceof LinearLayout.LayoutParams) {
