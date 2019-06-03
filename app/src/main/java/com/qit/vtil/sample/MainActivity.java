@@ -6,8 +6,6 @@ import android.widget.TextView;
 
 import com.qit.vtil.Vtil;
 
-import static com.qit.vtil.Vtil.unregister;
-
 
 public class MainActivity extends AppCompatActivity {
     TextView c0, c1, c2, c3, c4, c5, c6, c7, c8;
@@ -36,6 +34,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregister();
+        Vtil.unregister();
     }
 }
