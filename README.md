@@ -1,7 +1,6 @@
 # Vtil-调试Ui的工具
 
 Vtil的目标是打造一个便捷调试Ui的工具，
-还集成了各种炫酷的 Header 和 Footer。
 
 
 ## 特点功能:
