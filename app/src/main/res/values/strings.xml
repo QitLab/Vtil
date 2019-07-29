@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Vtil</string>
+    <string name="title">- Vtil -</string>
+    <string name="slogan">打造一个便捷调试Ui的工具</string>
+
+    <string name="github">https://github.com/QitLab/Vtil.git</string>
+    <string name="blog">博客:tiandroid.com</string>
+
+    <string name="character_1">支持点击控件显示其属性</string>
+    <string name="character_2">支持控件属性修改</string>
+    <string name="character_3">支持Move模式,控件屏幕随意拖动并显示距离</string>
+    <string name="character_4">支持选中子空间时再点击选中其父控件</string>
+    <string name="character_5">博客:tiandroid.com</string>
+    <string name="character_6">支持安装Vtil对应插件实现与Ide的交互"</string>
+
 </resources>

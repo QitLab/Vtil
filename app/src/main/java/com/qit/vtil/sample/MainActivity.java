@@ -43,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void refreshNoticeList() {
         String[] strs = {
-                "支持点击控件显示其属性",
-                "支持控件属性修改",
-                "支持Move模式,控件屏幕随意拖动并显示距离",
-                "支持选中子空间时再点击选中其父控件",
-                "支持3d效果展示控件的绘制情况",
-                "支持安装Vtil对应插件实现与Ide的交互",
+                getResources().getString(R.string.character_1),
+                getResources().getString(R.string.character_2),
+                getResources().getString(R.string.character_3),
+                getResources().getString(R.string.character_4),
+                getResources().getString(R.string.character_5),
+                getResources().getString(R.string.character_6),
         };
         ViewFlipper mViewFlipper = findViewById(R.id.vf_view_flipper);
         mViewFlipper.setFlipInterval(4000);

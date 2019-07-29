@@ -7,374 +7,371 @@
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nsl_root"
+        android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_home_title_img" />
 
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:background="@drawable/bg_home_title_img" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="35dp">
 
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="30dp">
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/title"
+                        android:textColor="@color/white"
+                        android:textSize="19sp" />
 
+                    <TextView
+                        android:id="@+id/tv_sub_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_title"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/slogan"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/tv_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="- Vtil - "
-                            android:textColor="@color/white"
-                            android:textSize="19sp" />
-
-                        <TextView
-                            android:id="@+id/tv_sub_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_title"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="打造一个便捷调试Ui的工具"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-
-
-                        <ImageView
-                            android:id="@+id/iv_message"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/tv_title"
-                            android:layout_alignBottom="@id/tv_title"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:src="@drawable/ic_white_message" />
-
-                        <TextView
-                            android:id="@+id/tv_new_flag"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginRight="6dp"
-                            android:background="@drawable/bg_circle_red"
-                            android:gravity="center_horizontal"
-                            android:text="2"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <RelativeLayout
-                            android:paddingTop="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_sub_title"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="8dp"
-                            android:background="@drawable/bg_home_loan">
-
-
-                            <LinearLayout
-                                android:id="@+id/ll_tip"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:paddingLeft="20dp"
-                                android:paddingRight="20dp">
-
-                                <TextView
-                                    android:id="@+id/tv_loan_title_up"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="使用说明"
-                                    android:textColor="#666666"
-                                    android:textSize="13sp" />
-
-                                <ImageView
-                                    android:id="@+id/iv_tip"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:src="@drawable/ic_gray_tip" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/tv_loan_title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/ll_tip"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginTop="5dp"
-                                android:text="QitLab"
-                                android:textColor="#333"
-                                android:textSize="36sp" />
-
-                            <TextView
-                                android:id="@+id/tv_loan_title_down"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/tv_loan_title"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:text="https://github.com/QitLab/Vtil.git"
-                                android:textColor="#666666"
-                                android:textSize="12sp" />
-
-
-                            <Button
-                                android:id="@+id/bt_loan"
-                                android:layout_width="240dp"
-                                android:layout_height="44dp"
-                                android:layout_below="@id/tv_loan_title_down"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:background="@drawable/bg_home_btn_selector"
-                                android:text="进入下一页"
-                                android:textColor="@color/white"
-                                android:textSize="15sp" />
-
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/ll_notice_list_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/iv_speaker"
+                        android:id="@+id/iv_message"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tv_title"
+                        android:layout_alignBottom="@id/tv_title"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ico_notice" />
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:src="@drawable/ic_white_message" />
 
                     <TextView
-                        android:id="@+id/tv_speaker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/iv_speaker"
-                        android:text="特性"
-                        android:textColor="#FF7D39"
+                        android:id="@+id/tv_new_flag"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/bg_circle_red"
+                        android:gravity="center_horizontal"
+                        android:text="2"
+                        android:textColor="@color/white"
                         android:textSize="12sp" />
 
-
-                    <ViewFlipper
-                        android:id="@+id/vf_view_flipper"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_toRightOf="@id/tv_speaker"
-                        android:inAnimation="@anim/anim_marquee_in"
-                        android:outAnimation="@anim/anim_marquee_out" />
-                </RelativeLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_member_card_root"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/tv_member_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_loan_title_up"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="15dp"
-                        android:drawableLeft="@drawable/ic_home_title_vertical"
-                        android:drawablePadding="5dp"
-                        android:text="打赏我"
-                        android:textColor="#333"
-                        android:textSize="16sp" />
-
-
-                    <LinearLayout
-                        android:id="@+id/ll_member_card_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:id="@+id/ll_member_card"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/bg_member_up"
-                            android:orientation="horizontal"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ico_black_vip_icon" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="5dp"
-                                android:src="@drawable/ico_black_vip_text" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="1px"
-                                android:layout_weight="1" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginRight="5dp"
-                                android:src="@drawable/ico_go_text" />
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ico_go" />
-                        </LinearLayout>
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_member_down">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right|bottom"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginBottom="20dp"
-                                android:src="@drawable/ic_member_vip" />
-
-                        </FrameLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_new_read"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="30dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_new_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_loan_title_up"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="15dp"
-                        android:drawableLeft="@drawable/ic_home_title_vertical"
-                        android:drawablePadding="5dp"
-                        android:text="新手必读"
-                        android:textColor="#333"
-                        android:textSize="16sp" />
-
                     <RelativeLayout
-                        android:id="@+id/rl_new"
                         android:layout_width="match_parent"
-                        android:layout_height="114dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_sub_title"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="8dp"
-                        android:background="@drawable/bg_home_new">
+                        android:background="@drawable/bg_home_loan"
+                        android:paddingTop="15dp">
 
 
                         <LinearLayout
-                            android:id="@+id/ll_title"
+                            android:id="@+id/ll_tip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:id="@+id/tv_new_main_title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="关于Vtil的一切"
-                                android:textColor="#333"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp">
 
                             <TextView
-                                android:id="@+id/tv_new_sub_title"
+                                android:id="@+id/tv_loan_title_up"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="动态调节UI细节"
-                                android:textColor="#333"
-                                android:textSize="14sp" />
+                                android:text="使用说明"
+                                android:textColor="#666666"
+                                android:textSize="13sp" />
+
+                            <ImageView
+                                android:id="@+id/iv_tip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:src="@drawable/ic_gray_tip" />
 
                         </LinearLayout>
 
-
-                        <ImageView
-                            android:id="@+id/iv_new"
+                        <TextView
+                            android:id="@+id/tv_loan_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="60dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_toRightOf="@id/ll_title"
-                            android:src="@drawable/ic_new_img" />
+                            android:layout_below="@id/ll_tip"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/github"
+                            android:textColor="#333"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_loan_title_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_loan_title"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="7dp"
+                            android:text="@string/blog"
+                            android:textColor="#666666"
+                            android:textSize="12sp" />
+
+
+                        <Button
+                            android:id="@+id/bt_loan"
+                            android:layout_width="240dp"
+                            android:layout_height="44dp"
+                            android:layout_below="@id/tv_loan_title_down"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/bg_home_btn_selector"
+                            android:text="进入下一页"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
                     </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_notice_list_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_speaker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ico_notice" />
+
+                <TextView
+                    android:id="@+id/tv_speaker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/iv_speaker"
+                    android:text="特性"
+                    android:textColor="#FF7D39"
+                    android:textSize="12sp" />
+
+
+                <ViewFlipper
+                    android:id="@+id/vf_view_flipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_toRightOf="@id/tv_speaker"
+                    android:inAnimation="@anim/anim_marquee_in"
+                    android:outAnimation="@anim/anim_marquee_out" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_member_card_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_member_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_loan_title_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:drawableLeft="@drawable/ic_home_title_vertical"
+                    android:drawablePadding="5dp"
+                    android:text="打赏我"
+                    android:textColor="#333"
+                    android:textSize="16sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_member_card_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_member_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_member_up"
+                        android:orientation="horizontal"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ico_black_vip_icon" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/ico_black_vip_text" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1px"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/ico_go_text" />
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ico_go" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_member_down">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:src="@drawable/ic_member_vip" />
+
+                    </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
-        </FrameLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_new_read"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_new_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_loan_title_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:drawableLeft="@drawable/ic_home_title_vertical"
+                    android:drawablePadding="5dp"
+                    android:text="新手必读"
+                    android:textColor="#333"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/bg_home_new">
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/tv_new_main_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="关于Vtil的一切"
+                            android:textColor="#333"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/tv_new_sub_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="动态调节UI细节"
+                            android:textColor="#333"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/iv_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@id/ll_title"
+                        android:src="@drawable/ic_new_img" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </FrameLayout>
