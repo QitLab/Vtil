@@ -27,8 +27,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${versions.supportLibrary}"
 
 //    releaseImplementation 'com.github.QitLab.Vtil:vtil_no_op:beta-2.0'
-//    debugImplementation 'com.github.QitLab.Vtil:vtil:beta-2.0'
+    debugImplementation 'com.github.QitLab.Vtil:vtil:beta-2.0'
 
-    debugImplementation project(':vtil')
-    releaseImplementation project(':vtil_no_op')
+//    debugImplementation project(':vtil')
+//    releaseImplementation project(':vtil_no_op')
 }
