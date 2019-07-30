@@ -2,9 +2,14 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTool
 
     defaultConfig {
         minSdkVersion versions.minSdk
+    }
+
+    lintOptions {
+        abortOnError false
     }
     compileOptions {
         sourceCompatibility = '1.8'
