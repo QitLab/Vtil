@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import static com.qit.vtil.DimenUtil.dip2px;
 import static com.qit.vtil.DimenUtil.getScreenHeight;
 import static com.qit.vtil.DimenUtil.getScreenWidth;
@@ -30,6 +29,7 @@ public class AttrsDialog extends Dialog {
     private TextView tvType, tvID;
     private EditText etWidth, etHeight, etPaddingL, etPaddingT, etPaddingR, etPaddingB;
     private EditText etBg;
+    private EditText etText;
     private View bgColor;
 
     AttrsDialog(Context context) {
@@ -61,6 +61,14 @@ public class AttrsDialog extends Dialog {
         View id = findViewById(R.id.id);
         ((TextView) id.findViewById(R.id.name)).setText("ID");
         tvID = id.findViewById(R.id.detail);
+
+        /*
+         * text
+         */
+        View text = findViewById(R.id.text);
+        ((TextView) text.findViewById(R.id.name)).setText("Text");
+        etText = text.findViewById(R.id.detail);
+        etText.addTextChangedListener(new MyTextWatcher(MyTextWatcher.TEXT));
 
         /*
          * width
@@ -135,7 +143,6 @@ public class AttrsDialog extends Dialog {
 
     }
 
-
     @SuppressLint("SetTextI18n")
     void show(Element element) {
         this.element = element;
@@ -160,6 +167,7 @@ public class AttrsDialog extends Dialog {
         etHeight.setText(px2dip(element.getHeight()) + "");
         etWidth.setText(px2dip(element.getWidth()) + "");
         etBg.setText(element.bgColor);
+        etText.setText(element.getText());
         try {
             if (TextUtils.isEmpty(element.bgColor)) {
                 bgColor.setBackgroundDrawable(new BitmapDrawable(null, element.bgBitmap));
@@ -184,6 +192,7 @@ public class AttrsDialog extends Dialog {
         static final int PATTINGR = 5;
         static final int PADDINGB = 6;
         static final int BACKGROUND = 7;
+        static final int TEXT = 8;
 
 
         MyTextWatcher(int tag) {
@@ -206,6 +215,13 @@ public class AttrsDialog extends Dialog {
                 }
                 return;
             }
+
+            if (type == TEXT) {
+                if (element.getView() instanceof TextView)
+                    ((TextView) element.getView()).setText(s.toString());
+                return;
+            }
+
             int f = dip2px(Float.valueOf(s.toString()));
             if (type == WIDTH) {
                 element.setWidth(f);

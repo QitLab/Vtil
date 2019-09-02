@@ -25,9 +25,9 @@ public class PluginSocket {
     public void start() {
         new Thread(() -> {
             try {
-                socket = new Socket("10.0.2.2", 44502);
+                socket = new Socket("10.2.22.13", 13579);
                 boolean connected = socket.isConnected();
-                Log.i("info", "connected?" + connected);
+                Log.i("qitian", "connected?" + connected);
                 os = socket.getOutputStream();
                 pw = new PrintWriter(os);
                 pw.write(msg);

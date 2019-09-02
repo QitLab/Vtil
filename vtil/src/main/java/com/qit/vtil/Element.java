@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import static com.qit.vtil.DimenUtil.dip2px;
 
@@ -16,6 +17,7 @@ public class Element {
     private View view;
     private int width, height, paddingL, paddingT, paddingR, paddingB;
     String bgColor;
+    String text;
     Bitmap bgBitmap;
 
     private Rect rect = new Rect();
@@ -31,7 +33,10 @@ public class Element {
         this.paddingB = view.getPaddingBottom();
         Object background = Util.getBackground(view);
         if (background instanceof String) {
-            bgColor=(String) background;
+            bgColor = (String) background;
+        }
+        if (view instanceof TextView) {
+            this.text = ((TextView) view).getText().toString();
         }
         initRect();
     }
@@ -72,9 +77,9 @@ public class Element {
         this.width = width;
         if (Math.abs(width - view.getWidth()) >= dip2px(1)) {
             if (view.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(width, height, 0f);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, height, 0f);
                 view.setLayoutParams(lp);
-            }else {
+            } else {
                 view.getLayoutParams().width = width;
                 view.requestLayout();
             }
@@ -89,9 +94,9 @@ public class Element {
         this.height = height;
         if (Math.abs(height - view.getHeight()) >= dip2px(1)) {
             if (view.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(width, height, 0f);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, height, 0f);
                 view.setLayoutParams(lp);
-            }else {
+            } else {
                 view.getLayoutParams().height = height;
                 view.requestLayout();
             }
@@ -153,6 +158,15 @@ public class Element {
         } catch (Exception ignored) {
         }
     }
+
+    public String getText() {
+        return text;
+    }
+
+    void setText(String text) {
+        this.text = text;
+    }
+
 
     public Bitmap getBgBitmap() {
         return bgBitmap;

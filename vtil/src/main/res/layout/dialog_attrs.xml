@@ -12,8 +12,9 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/ll_contain"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <!--Move-->
             <include
@@ -29,6 +30,11 @@
             <include
                 android:id="@+id/id"
                 layout="@layout/item_text" />
+
+            <!--text-->
+            <include
+                android:id="@+id/text"
+                layout="@layout/item_edit_view" />
 
             <!--Width-->
             <include
